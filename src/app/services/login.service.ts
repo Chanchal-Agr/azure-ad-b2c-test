@@ -64,8 +64,8 @@ export class LoginService {
           const accounts = this.authService.instance.getAllAccounts();
           if (accounts.length > 0) {
             const tokenRequest = {
-              scopes: [ 'https://pageupsoftadb2c.onmicrosoft.com/dev/expensetracker/api/read',
-                'https://pageupsoftadb2c.onmicrosoft.com/dev/expensetracker/api/write'], // Replace with your API's required scopes
+              scopes: [ 'https://hbcradiomatictest.onmicrosoft.com/demoapi/read',
+                'https://hbcradiomatictest.onmicrosoft.com/demoapi/write'], // Replace with your API's required scopes
               account: accounts[0]
             };
            

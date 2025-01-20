@@ -29,7 +29,8 @@ export class NavBarComponent {
         filter(
           (msg: EventMessage) =>
             msg.eventType === EventType.ACCOUNT_ADDED ||
-            msg.eventType === EventType.ACCOUNT_REMOVED
+            msg.eventType === EventType.ACCOUNT_REMOVED||
+            msg.eventType === EventType.LOGIN_SUCCESS // Add this event type
         )
       )
       .subscribe((result: EventMessage) => {
@@ -43,13 +44,18 @@ export class NavBarComponent {
 
   public loginRedirect() {
     if (this.msalGuardConfig.authRequest) {
-      this.authService.loginRedirect({
-        ...this.msalGuardConfig.authRequest,
-      } as RedirectRequest);
+        this.authService.loginRedirect({
+            ...this.msalGuardConfig.authRequest,
+        } as RedirectRequest).subscribe(() => {
+            this.isUserLogin(); // Update loginDisplay after successful login
+        });
     } else {
-      this.authService.loginRedirect();
+        this.authService.loginRedirect().subscribe(() => {
+            this.isUserLogin(); // Ensure loginDisplay is updated here too
+        });
     }
-  }
+}
+
 
   public logout(popup?: boolean) {
     if (popup) {

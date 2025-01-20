@@ -40,15 +40,15 @@ export function loggerCallback(logLevel: LogLevel, message: string) {
 }
 export const b2cPolicies = {
   names: {
-    signUpSignIn: 'B2C_1_pageuptest'
+    signUpSignIn: 'B2C_1_signupsignin1'
   },
   authorities: {
     signUpSignIn: {
       authority:
-        'https://pageupsoftadb2c.b2clogin.com/pageupsoftadb2c.onmicrosoft.com/B2C_1_pageuptest',
+        'https://hbcradiomatictest.b2clogin.com/hbcradiomatictest.onmicrosoft.com/B2C_1_signupsignin1',
     }
   },
-  authorityDomain: 'pageupsoftadb2c.b2clogin.com',
+  authorityDomain: 'hbcradiomatictest.b2clogin.com',
 };
 export function MSALInstanceFactory(): IPublicClientApplication {
   return new PublicClientApplication({
@@ -57,7 +57,8 @@ export function MSALInstanceFactory(): IPublicClientApplication {
       authority: b2cPolicies.authorities.signUpSignIn.authority, //environment.msalConfig.auth.authority,
       knownAuthorities: [b2cPolicies.authorityDomain], // Mark your B2C tenant's domain as trusted.
       redirectUri: '/',
-      postLogoutRedirectUri: '/',
+      postLogoutRedirectUri: '/'
+    
     },
     cache: {
       cacheLocation: BrowserCacheLocation.LocalStorage,

@@ -12,12 +12,12 @@ export const environment: EnvironmentConfiguration = {
     userProfile:'user-profiles'
   },
   adb2cConfig: {
-    clientId: '770bf9e9-05de-44e9-b38f-ce261b4c2e0e',
-    readScopeUrl: 'https://pageupsoftadb2c.onmicrosoft.com/dev/expensetracker/api/read',
-    writeScopeUrl: 'https://pageupsoftadb2c.onmicrosoft.com/dev/expensetracker/api/write',
+    clientId: 'b57c945b-1440-4489-884c-b4cf833f5a36',
+    readScopeUrl: 'https://hbcradiomatictest.onmicrosoft.com/demoapi/read',
+    writeScopeUrl: 'https://hbcradiomatictest.onmicrosoft.com/demoapi/write',
     scopeUrls:[
-      'https://pageupsoftadb2c.onmicrosoft.com/dev/expensetracker/api/write',
-      'https://pageupsoftadb2c.onmicrosoft.com/dev/expensetracker/api/read'
+      'https://hbcradiomatictest.onmicrosoft.com/demoapi/write',
+      'https://hbcradiomatictest.onmicrosoft.com/demoapi/read'
     ],
     apiEndpointUrl: serverUrl
   },
