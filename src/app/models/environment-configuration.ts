@@ -7,10 +7,11 @@ export interface EnvironmentConfiguration {
     },
     adb2cConfig: {
         clientId: string;
-        readScopeUrl: string;
+        readScopeUrl?: string;
         scopeUrls:string[];
-        writeScopeUrl: string;
+        writeScopeUrl?: string;
         apiEndpointUrl: string;
+       
     }
     cacheTimeInMinutes: number;
 }
