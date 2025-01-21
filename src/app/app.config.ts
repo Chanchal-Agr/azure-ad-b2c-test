@@ -74,8 +74,7 @@ export const b2cPoliciesDaenet = {
   },
   authorityDomain: 'hbcradiomatictest.b2clogin.com',
 };
-
-export const b2cPolicies =  b2cPoliciesDaenet
+export const b2cPolicies =  b2cPoliciesPageup
 export function MSALInstanceFactory(): IPublicClientApplication {
   return new PublicClientApplication({
     auth: {
