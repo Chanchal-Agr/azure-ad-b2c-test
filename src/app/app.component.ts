@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavBarComponent,CommonModule],
+  imports: [RouterOutlet, NavBarComponent, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -78,7 +78,13 @@ export class AppComponent {
      * To use active account set here, subscribe to inProgress$ first in your component
      * Note: Basic usage demonstrated. Your app may require more complicated account selection logic
      */
+    console.log("checkAndSetActiveAccount method called");
+
     let activeAccount = this.authService.instance.getActiveAccount();
+    console.log("Active account " + activeAccount);
+
+    console.log("get all accounts " + this.authService.instance.getAllAccounts().length);
+
 
     if (
       !activeAccount &&
@@ -89,47 +95,6 @@ export class AppComponent {
     }
   }
 
-  // loginRedirect() {
-  //   if (this.msalGuardConfig.authRequest) {
-  //     this.authService.loginRedirect({
-  //       ...this.msalGuardConfig.authRequest,
-  //     } as RedirectRequest);
-  //   } else {
-  //     this.authService.loginRedirect();
-  //   }
-  // }
-
-  // loginPopup() {
-  //   if (this.msalGuardConfig.authRequest) {
-  //     this.authService
-  //       .loginPopup({ ...this.msalGuardConfig.authRequest } as PopupRequest)
-  //       .subscribe((response: AuthenticationResult) => {
-  //         this.authService.instance.setActiveAccount(response.account);
-  //       });
-  //   } else {
-  //     this.authService
-  //       .loginPopup()
-  //       .subscribe((response: AuthenticationResult) => {
-  //         this.authService.instance.setActiveAccount(response.account);
-  //       });
-  //   }
-  // }
-
-  // logout(popup?: boolean) {
-  //   if (popup) {
-  //     this.authService.logoutPopup({
-  //       mainWindowRedirectUri: '/',
-  //     });
-  //   } else {
-  //     this.authService.logoutRedirect();
-  //   }
-  // }
-
-
-
-  //   getCreditCard(){
-  // this.creditCardService.getCreditCards(4).subscribe(s=>console.log('Credit cards',s));
-  //   }
 
   callApi() {
     this.loginService.callApi("https://localhost:44351/api/Users/4")
