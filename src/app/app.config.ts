@@ -38,43 +38,8 @@ import { environment } from '../environments/environment';
 export function loggerCallback(logLevel: LogLevel, message: string) {
   console.log(message);
 }
-export const b2cPoliciesPageup = {
-  names: {
-    signUpSignIn: 'B2C_1_pageuptest'
-    // ,
-    // resetPassword: 'B2C_1_password_reset',
-    // editProfile: 'B2C_1_profile_edit',
-  },
-  authorities: {
-    signUpSignIn: {
-      authority:
-        'https://pageupsoftadb2c.b2clogin.com/pageupsoftadb2c.onmicrosoft.com/B2C_1_pageuptest',
-    }
-    // ,
-    // resetPassword: {
-    //   authority:
-    //     'https://karthiktechworld.b2clogin.com/karthiktechworld.onmicrosoft.com/B2C_1_password_reset',
-    // },
-    // editProfile: {
-    //   authority:
-    //     'https://karthiktechworld.b2clogin.com/karthiktechworld.onmicrosoft.com/B2C_1_profile_edit',
-    // },
-  },
-  authorityDomain: 'pageupsoftadb2c.b2clogin.com',
-};
-export const b2cPoliciesDaenet = {
-  names: {
-    signUpSignIn: 'B2C_1_signupsignin1'
-  },
-  authorities: {
-    signUpSignIn: {
-      authority:
-        'https://hbcradiomatictest.b2clogin.com/hbcradiomatictest.onmicrosoft.com/B2C_1_signupsignin1',
-    }
-  },
-  authorityDomain: 'hbcradiomatictest.b2clogin.com',
-};
-export const b2cPolicies =  b2cPoliciesPageup
+
+export const b2cPolicies =  environment.b2cPolicies
 export function MSALInstanceFactory(): IPublicClientApplication {
   return new PublicClientApplication({
     auth: {
@@ -87,6 +52,7 @@ export function MSALInstanceFactory(): IPublicClientApplication {
     },
     cache: {
       cacheLocation: BrowserCacheLocation.LocalStorage,
+      storeAuthStateInCookie: false,
     },
     system: {
       //allowNativeBroker: false, // Disables WAM Broker
