@@ -11,6 +11,7 @@ import {
   withInterceptorsFromDi,
   HTTP_INTERCEPTORS,
   withFetch,
+  withInterceptors,
 } from '@angular/common/http';
 import {
   BrowserAnimationsModule,
@@ -35,6 +36,7 @@ import {
   MsalBroadcastService,
 } from '@azure/msal-angular';
 import { environment } from '../environments/environment';
+import { authInterceptor } from './interceptors/auth.interceptor';
 export function loggerCallback(logLevel: LogLevel, message: string) {
   console.log(message);
 }
@@ -103,6 +105,7 @@ export const appConfig: ApplicationConfig = {
       useClass: MsalInterceptor,
       multi: true,
     },
+     provideHttpClient(withInterceptors([authInterceptor])),
     {
       provide: MSAL_INSTANCE,
       useFactory: MSALInstanceFactory,

@@ -1,7 +1,7 @@
 export interface EnvironmentConfiguration {
     env_name: string;
     //production: boolean;
-    apiUrl: string;
+    baseURL: string;
     // apiEndpoints: {
     //     userProfile: string;      
     // },
